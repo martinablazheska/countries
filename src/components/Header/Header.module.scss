@@ -1,0 +1,34 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 10%;
+  padding: 0 50px;
+  box-sizing: border-box;
+  background-color: white;
+  color: hsl(200, 15%, 8%);
+
+  .title {
+    font-size: 1.8rem;
+    font-weight: 800;
+  }
+
+  .theme-picker {
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: flex;
+    flex-direction: row;
+    width: 30%;
+    justify-content: flex-end;
+    .moon {
+      width: 20px;
+      background-image: url("../../assets/moon-outline.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      margin-right: 10px;
+    }
+  }
+}
