@@ -2,4 +2,13 @@
   background-color: hsl(0, 0%, 98%);
   height: 90%;
   box-sizing: border-box;
+  padding: 0 100px;
+
+  .countries {
+    width: 100%;
+    display: grid;
+    grid-gap: 50px;
+    grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+    grid-template-rows: repeat(auto, 500px);
+  }
 }
