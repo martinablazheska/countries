@@ -1,8 +1,9 @@
 .country-card {
-  height: 350px;
+  height: 380px;
   background-color: white;
   font-weight: 600;
-  border-radius: 150x;
+  border-radius: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
   .flag {
     width: 100%;
@@ -27,6 +28,7 @@
   ul {
     list-style: none;
     margin-left: -15px;
+    margin-top: 5px;
     font-size: 1rem;
   }
 }

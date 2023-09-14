@@ -1,15 +1,34 @@
 .main {
-  background-color: hsl(0, 0%, 98%);
+  background-color: hsl(0, 0%, 95%);
   height: 90%;
   box-sizing: border-box;
   padding: 0 100px;
+}
 
-  .countries {
+.searchbar {
+  height: 60px;
+  width: 50%;
+  max-width: 800px;
+  padding-top: 25px;
+
+  input {
     width: 100%;
-    display: grid;
-    grid-gap: 50px;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 20%));
-    grid-template-rows: repeat(auto, 300px);
-    justify-content: space-between;
+    height: 100%;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-family: "Nunito Sans", sans-serif;
+    background-image: url("../../assets/search-outline.svg");
+    background-repeat: no-repeat;
+    background-size: 25px;
+    background-position: left;
+    background-position-x: +5px;
+    padding-left: 40px;
+  }
+
+  input:focus {
+    border: none;
+    outline: 1px solid gray;
   }
 }
