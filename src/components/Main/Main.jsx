@@ -16,10 +16,19 @@ function Main() {
   } = useContext(filterContext);
 
   const fetchCountryData = useCallback(async () => {
-    const response = await fetch("https://restcountries.com/v3.1/all");
-    const countryData = await response.json();
-    setCountryData(countryData);
-    setFilteredData(countryData);
+    try {
+      const response = await fetch("https://restcountries.com/v3.1/all");
+
+      if (!response.ok) {
+        throw new Error("Something went wrong...");
+      }
+
+      const countryData = await response.json();
+      setCountryData(countryData);
+      setFilteredData(countryData);
+    } catch (error) {
+      setCountryData(error.message || "Something went wrong...");
+    }
   }, []);
 
   useEffect(() => {
