@@ -2,6 +2,8 @@
   height: 100%;
   width: 200px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: white;
+  border-radius: 5px;
 
   select {
     width: 100%;
@@ -11,8 +13,9 @@
     font-weight: 600;
     box-sizing: border-box;
     padding-left: 10px;
-    border-radius: 5px;
     border: none;
+    background-color: transparent;
+    color: hsl(200, 15%, 8%);
   }
   select:focus {
     outline: none;
@@ -29,5 +32,13 @@
 
   option:nth-of-type(1) {
     display: none;
+  }
+}
+
+.dropdown[data-theme="dark"] {
+  background-color: hsl(209, 23%, 22%);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 0px;
+  select {
+    color: white;
   }
 }

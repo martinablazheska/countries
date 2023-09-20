@@ -1,8 +1,11 @@
 import classes from "./CountryCard.module.scss";
+import { useContext } from "react";
+import { themeContext } from "../../../store/theme-context";
 
 function CountryCard(props) {
+  const { theme } = useContext(themeContext);
   return (
-    <div className={classes["country-card"]}>
+    <div className={classes["country-card"]} data-theme={theme}>
       <div
         className={classes.flag}
         style={{ backgroundImage: `url(${props.flag})` }}

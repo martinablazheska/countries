@@ -1,6 +1,7 @@
 .country-card {
   height: 380px;
   background-color: white;
+  color: hsl(200, 15%, 8%);
   font-weight: 600;
   border-radius: 5px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -31,4 +32,10 @@
     margin-top: 5px;
     font-size: 1rem;
   }
+}
+
+.country-card[data-theme="dark"] {
+  background-color: hsl(209, 23%, 22%);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 0px;
+  color: white;
 }

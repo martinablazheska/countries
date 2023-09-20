@@ -1,8 +1,9 @@
 .main {
-  background-color: hsl(0, 0%, 95%);
-  height: 90%;
+  width: 100%;
   box-sizing: border-box;
   padding: 0 100px;
+  color: hsl(200, 15%, 8%);
+  background-color: hsl(0, 0%, 98%);
 
   .filter {
     width: 100%;
@@ -14,4 +15,9 @@
     padding-top: 25px;
     height: 80px;
   }
+}
+
+.main[data-theme="dark"] {
+  color: white;
+  background-color: hsl(207, 26%, 17%);
 }

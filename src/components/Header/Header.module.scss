@@ -1,14 +1,13 @@
+@import url("../../index.scss");
+
 .header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: 100vw;
-  height: 10%;
-  padding: 0 100px;
+  padding: 25px 100px;
   box-sizing: border-box;
-  background-color: white;
-  color: hsl(200, 15%, 8%);
 
   .title {
     font-size: 1.8rem;
@@ -24,11 +23,26 @@
     justify-content: flex-end;
     .moon {
       width: 20px;
-      background-image: url("../../assets/moon-outline.svg");
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center;
       margin-right: 10px;
     }
+  }
+}
+
+.header[data-theme="light"] {
+  background-color: white;
+  color: hsl(200, 15%, 8%);
+  .moon {
+    background-image: url("../../assets/moon-outline.svg");
+  }
+}
+.header[data-theme="dark"] {
+  background-color: hsl(209, 23%, 22%);
+  color: white;
+  .moon {
+    background-image: url("../../assets/moon.svg");
+    filter: invert(100%);
   }
 }

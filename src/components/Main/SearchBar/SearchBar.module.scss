@@ -3,25 +3,50 @@
   width: 50%;
   max-width: 800px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 5px;
+  padding: 0 10px;
+  background-color: white;
+
+  img {
+    width: 20px;
+    padding: 0 5px;
+  }
 
   input {
     width: 100%;
     height: 100%;
     border: none;
     outline: none;
-    border-radius: 5px;
     font-size: 1rem;
     font-weight: 600;
     font-family: "Nunito Sans", sans-serif;
-    background-image: url("../../../assets/search-outline.svg");
-    background-repeat: no-repeat;
-    background-size: 25px;
-    background-position: left;
-    background-position-x: +5px;
-    padding-left: 40px;
+    color: hsl(0, 0%, 52%);
+    background-color: transparent;
+    &::placeholder {
+      color: hsl(0, 0%, 52%);
+    }
   }
 
   input:focus {
     border: none;
+  }
+}
+
+.searchbar[data-theme="dark"] {
+  background-color: hsl(209, 23%, 22%);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 0px;
+  img {
+    filter: invert(100%);
+  }
+
+  input {
+    color: white;
+    &::placeholder {
+      color: white;
+    }
   }
 }

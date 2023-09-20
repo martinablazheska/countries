@@ -4,9 +4,12 @@ import CountryList from "./CountryList/CountryList";
 import SearchBar from "./SearchBar/SearchBar";
 import RegionPicker from "./RegionPicker/RegionPicker";
 import { filterContext } from "../../store/filter-context";
+import { themeContext } from "../../store/theme-context";
 
 function Main() {
   const [countryData, setCountryData] = useState([]);
+  const [error, setError] = useState("");
+
   const {
     filteredData,
     setFilteredData,
@@ -14,6 +17,8 @@ function Main() {
     searchInput,
     selectInput,
   } = useContext(filterContext);
+
+  const { theme } = useContext(themeContext);
 
   const fetchCountryData = useCallback(async () => {
     try {
@@ -24,28 +29,29 @@ function Main() {
       }
 
       const countryData = await response.json();
+      setError("");
       setCountryData(countryData);
       setFilteredData(countryData);
     } catch (error) {
-      setCountryData(error.message || "Something went wrong...");
+      setError("Something went wrong...");
     }
   }, []);
 
   useEffect(() => {
     fetchCountryData();
-  }, [fetchCountryData]);
+  }, []);
 
   useEffect(() => {
     filterData(countryData);
   }, [selectInput, searchInput, countryData]);
 
   return (
-    <main className={classes.main}>
+    <main className={classes.main} data-theme={theme}>
       <div className={classes.filter}>
         <SearchBar />
         <RegionPicker />
       </div>
-      <CountryList countryData={filteredData} />
+      {error === "" ? <CountryList countryData={filteredData} /> : error}
     </main>
   );
 }

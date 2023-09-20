@@ -1,14 +1,20 @@
 import classes from "./SearchBar.module.scss";
 import { useContext } from "react";
 import { filterContext } from "../../../store/filter-context";
+import { themeContext } from "../../../store/theme-context";
+import searchIcon from "../../../assets/search-outline.svg";
 
-function SearchBar(props) {
+function SearchBar() {
   const { searchInput, setSearchInput } = useContext(filterContext);
+  const { theme } = useContext(themeContext);
+
   function onChange(event) {
     setSearchInput(event.target.value);
   }
+
   return (
-    <div className={classes.searchbar}>
+    <div className={classes.searchbar} data-theme={theme}>
+      <img src={searchIcon} alt="search" />
       <input
         type="text"
         placeholder="Search for a country... "

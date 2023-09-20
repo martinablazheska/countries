@@ -1,15 +1,18 @@
-import classes from "./App.module.scss";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
+import Wrapper from "./components/Wrapper/Wrapper";
 import FilterContextProvider from "./store/filter-context";
+import ThemeContextProvider from "./store/theme-context";
 
 function App() {
   return (
     <FilterContextProvider>
-      <div className={classes.app}>
-        <Header />
-        <Main />
-      </div>
+      <ThemeContextProvider>
+        <Wrapper>
+          <Header />
+          <Main />
+        </Wrapper>
+      </ThemeContextProvider>
     </FilterContextProvider>
   );
 }
