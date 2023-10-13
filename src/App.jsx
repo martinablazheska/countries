@@ -1,5 +1,4 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
 import Wrapper from "./components/Wrapper/Wrapper";
 import CountriesContextProvider from "./store/countries-context";
 import ThemeContextProvider from "./store/theme-context";

@@ -10,10 +10,14 @@ function RegionPicker(props) {
   const { setSelectInput } = useContext(countriesContext);
   const { theme } = useContext(themeContext);
 
-  const options = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
+  const options = ["All", "Africa", "Americas", "Asia", "Europe", "Oceania"];
 
   function optionHandler(option) {
-    setSelectInput(option);
+    if (option === "All") {
+      setSelectInput("");
+    } else {
+      setSelectInput(option);
+    }
     setSelectIsOpen(false);
     setSelectedOption(option);
   }
