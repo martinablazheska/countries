@@ -4,7 +4,7 @@
   padding: 0 100px;
   color: hsl(200, 15%, 8%);
   background-color: hsl(0, 0%, 98%);
-
+  height: 100%;
   .filter {
     width: 100%;
     display: flex;
@@ -15,6 +15,12 @@
     padding-top: 25px;
     height: 80px;
     overflow: visible;
+  }
+
+  p {
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin: 20px 0;
   }
 }
 

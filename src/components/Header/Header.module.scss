@@ -9,6 +9,10 @@
   padding: 25px 100px;
   box-sizing: border-box;
 
+  a {
+    text-decoration: none;
+  }
+
   .title {
     font-size: 1.8rem;
     font-weight: 800;
@@ -21,6 +25,9 @@
     flex-direction: row;
     width: 30%;
     justify-content: flex-end;
+    &:hover {
+      cursor: pointer;
+    }
     .moon {
       width: 20px;
       background-repeat: no-repeat;
@@ -34,15 +41,36 @@
 .header[data-theme="light"] {
   background-color: white;
   color: hsl(200, 15%, 8%);
+  a {
+    &:visited {
+      color: hsl(200, 15%, 8%);
+    }
+  }
   .moon {
     background-image: url("../../assets/moon-outline.svg");
+  }
+  &:hover {
+    .moon {
+      background-image: url("../../assets/moon.svg");
+    }
   }
 }
 .header[data-theme="dark"] {
   background-color: hsl(209, 23%, 22%);
   color: white;
+  a {
+    &:visited {
+      color: white;
+    }
+  }
   .moon {
     background-image: url("../../assets/moon.svg");
     filter: invert(100%);
+  }
+  &:hover {
+    .moon {
+      background-image: url("../../assets/moon-outline.svg");
+      filter: invert(100%);
+    }
   }
 }

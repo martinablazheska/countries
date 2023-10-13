@@ -1,19 +1,32 @@
-import Header from "./components/Header/Header";
-import Main from "./components/Main/Main";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
 import Wrapper from "./components/Wrapper/Wrapper";
-import FilterContextProvider from "./store/filter-context";
+import CountriesContextProvider from "./store/countries-context";
 import ThemeContextProvider from "./store/theme-context";
+import RootLayoutPage from "./pages/RootLayoutPage";
+import CountriesPage from "./pages/CountriesPage";
+import CountryDetailPage from "./pages/CountryDetailPage";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootLayoutPage />,
+    children: [
+      { path: "", index: true, element: <CountriesPage /> },
+      { path: "/:countryId", element: <CountryDetailPage /> },
+    ],
+  },
+]);
 
 function App() {
   return (
-    <FilterContextProvider>
+    <CountriesContextProvider>
       <ThemeContextProvider>
         <Wrapper>
-          <Header />
-          <Main />
+          <RouterProvider router={router} />
         </Wrapper>
       </ThemeContextProvider>
-    </FilterContextProvider>
+    </CountriesContextProvider>
   );
 }
 

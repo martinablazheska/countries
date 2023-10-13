@@ -1,13 +1,13 @@
 import classes from "./RegionPicker.module.scss";
 import { useContext, useState } from "react";
-import { filterContext } from "../../../store/filter-context";
+import { countriesContext } from "../../../store/countries-context";
 import { themeContext } from "../../../store/theme-context";
 
 function RegionPicker(props) {
   const [selectIsOpen, setSelectIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
 
-  const { setSelectInput } = useContext(filterContext);
+  const { setSelectInput } = useContext(countriesContext);
   const { theme } = useContext(themeContext);
 
   const options = ["Africa", "Americas", "Asia", "Europe", "Oceania"];

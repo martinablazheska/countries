@@ -1,49 +1,28 @@
-import classes from "./Main.module.scss";
-import { useState, useCallback, useEffect, useContext } from "react";
+import { useContext } from "react";
+import { countriesContext } from "../../store/countries-context";
+import { themeContext } from "../../store/theme-context";
+
 import CountryList from "./CountryList/CountryList";
 import SearchBar from "./SearchBar/SearchBar";
 import RegionPicker from "./RegionPicker/RegionPicker";
-import { filterContext } from "../../store/filter-context";
-import { themeContext } from "../../store/theme-context";
+
+import classes from "./Main.module.scss";
 
 function Main() {
-  const [countryData, setCountryData] = useState([]);
-  const [error, setError] = useState("");
-
-  const {
-    filteredData,
-    setFilteredData,
-    filterData,
-    searchInput,
-    selectInput,
-  } = useContext(filterContext);
-
   const { theme } = useContext(themeContext);
+  const { filteredData, error, loading } = useContext(countriesContext);
 
-  const fetchCountryData = useCallback(async () => {
-    try {
-      const response = await fetch("https://restcountries.com/v3.1/all");
+  let countryListContent = <CountryList countryData={filteredData} />;
 
-      if (!response.ok) {
-        throw new Error("Something went wrong...");
-      }
-
-      const countryData = await response.json();
-      setError("");
-      setCountryData(countryData);
-      setFilteredData(countryData);
-    } catch (error) {
-      setError("Something went wrong...");
-    }
-  }, []);
-
-  useEffect(() => {
-    fetchCountryData();
-  }, []);
-
-  useEffect(() => {
-    filterData(countryData);
-  }, [selectInput, searchInput, countryData]);
+  if (loading) {
+    countryListContent = <p>Loading countries...</p>;
+  }
+  if (error) {
+    countryListContent = <p>{error}</p>;
+  }
+  if (loading === false && filteredData.length === 0) {
+    countryListContent = <p>No countries found.</p>;
+  }
 
   return (
     <main className={classes.main} data-theme={theme}>
@@ -51,7 +30,7 @@ function Main() {
         <SearchBar />
         <RegionPicker />
       </div>
-      {error === "" ? <CountryList countryData={filteredData} /> : error}
+      {countryListContent}
     </main>
   );
 }

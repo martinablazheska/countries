@@ -40,6 +40,7 @@ Users should be able to:
 - Using the useCallback hook while sending http requests
 - Filtering data based on user input at each keystroke
 - Filtering data based on more than one user input
+- Using data-theme together with context to provide dark more option
 
 ### Continued development
 

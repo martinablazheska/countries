@@ -25,7 +25,13 @@
     li {
       margin-left: -35px;
       padding: 3px 0;
+      &:hover {
+        font-weight: 800;
+      }
     }
+  }
+  &:hover {
+    cursor: pointer;
   }
 }
 

@@ -5,3 +5,16 @@ body {
   padding: 0;
   border: 0;
 }
+
+input {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+:root {
+  $dark-blue: hsl(209, 23%, 22%); //dark mode elements
+  $very-dark-blue-background: hsl(207, 26%, 17%); //dark mode background
+  $very-dark-blue-text: hsl(200, 15%, 8%); //light mode text
+  $dark-gray: hsl(0, 0%, 52%); //light mode input
+  $very-light-grey: hsl(0, 0%, 95%); //light mode background
+  $white: hsl(0, 0%, 100%); //light mode elements, dark mode text
+}

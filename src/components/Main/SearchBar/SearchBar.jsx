@@ -1,11 +1,11 @@
 import classes from "./SearchBar.module.scss";
 import { useContext } from "react";
-import { filterContext } from "../../../store/filter-context";
+import { countriesContext } from "../../../store/countries-context";
 import { themeContext } from "../../../store/theme-context";
 import searchIcon from "../../../assets/search-outline.svg";
 
 function SearchBar() {
-  const { searchInput, setSearchInput } = useContext(filterContext);
+  const { searchInput, setSearchInput } = useContext(countriesContext);
   const { theme } = useContext(themeContext);
 
   function onChange(event) {
