@@ -41,8 +41,10 @@ Users should be able to:
 - Filtering data based on user input at each keystroke
 - Filtering data based on more than one user input
 - Using data-theme together with context to provide dark more option
+- Using React Router to render different pages
+- Using useNavigate from 'react-router-dom'
 
 ### Continued development
 
-- Add a detailed preview of the country using React Router
-- Add mobile version
+- Add a default error page
+- Make sure that http request is sent even when a 'detail country' page is refreshed
