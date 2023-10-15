@@ -1,11 +1,16 @@
 import { Link } from "react-router-dom";
 
-function DetailsContainer(props) {
+import { useContext } from "react";
+import { themeContext } from "../../store/theme-context";
+import classes from "./CountryData.module.scss";
+
+function CountryData(props) {
+  const { theme } = useContext(themeContext);
   return (
-    <div>
+    <div className={classes["country-data"]} data-theme={theme}>
       <h1>{props.currentCountry.commonName}</h1>
-      <div>
-        <ul>
+      <ul>
+        <div>
           <li>
             <span>Native Name:</span> {props.currentCountry.nativeName}
           </li>
@@ -26,8 +31,8 @@ function DetailsContainer(props) {
           <li>
             <span>Capital:</span> {""} {props.currentCountry.capital}
           </li>
-        </ul>
-        <ul>
+        </div>
+        <div>
           <li>
             <span>Top Level Domain:</span> {""} {props.currentCountry.tld}
           </li>
@@ -39,23 +44,22 @@ function DetailsContainer(props) {
             <span>Languages:</span>
             {""} {props.currentCountry.languages}
           </li>
-        </ul>
-      </div>
+        </div>
+      </ul>
       {props.currentCountry.border && (
-        <ul>
-          <span>Border Countries:</span>{" "}
-          <ul>
-            {props.currentCountry.border.map((country) => (
-              <li key={country.cca2}>
-                <Link to={`/${country.cca2.toLowerCase()}`} key={country.cca2}>
-                  {country.name.common}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </ul>
+        <div className={classes.borders}>
+          <span>Border Countries:</span>
+          {props.currentCountry.border.map((country) => (
+            <div key={country.cca2}>
+              <Link to={`/${country.cca2.toLowerCase()}`}>
+                {country.name.common}
+              </Link>
+            </div>
+          ))}
+        </div>
       )}
     </div>
   );
 }
-export default DetailsContainer;
+
+export default CountryData;

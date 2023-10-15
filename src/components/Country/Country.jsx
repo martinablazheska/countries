@@ -1,22 +1,28 @@
 import { useNavigate } from "react-router-dom";
+
 import { useContext } from "react";
-import { countriesContext } from "../../store/countries-context";
 import { themeContext } from "../../store/theme-context";
+import { countriesContext } from "../../store/countries-context";
 
-import classes from "./CountryDetail.module.scss";
-import DetailsContainer from "./DetailsContainer";
+import backArrow from "../../assets/arrow-back-outline.svg";
+import CountryData from "./CountryData";
+import classes from "./Country.module.scss";
 
-function CountryDetail(props) {
+function Country(props) {
   const navigate = useNavigate();
+  function backButtonHandler() {
+    navigate(-1);
+  }
 
-  const { countryData } = useContext(countriesContext);
   const { theme } = useContext(themeContext);
+  const { countryData } = useContext(countriesContext);
 
   const currentCountry = countryData.find(
     (country) => country.cca2.toLowerCase() === props.countryId
   );
 
   const currentCountryData = {
+    flag: currentCountry.flags.png,
     commonName: currentCountry.name.common,
     nativeName: Object.values(currentCountry.name.nativeName)[0].official,
     population: currentCountry.population.toLocaleString("en-US", {
@@ -39,20 +45,21 @@ function CountryDetail(props) {
       ),
   };
 
-  function backButtonHandler() {
-    navigate(-1);
-  }
-
   return (
-    <main data-theme={theme} className={classes.main}>
-      <button onClick={backButtonHandler}>Back</button>
-      <div className={classes["country-container"]}>
-        <div className={classes.flag}>
-          <img src={currentCountry.flags.png} alt="flag" />
-        </div>
-        <DetailsContainer currentCountry={currentCountryData} />
+    <main data-theme={theme} className={classes["country__main"]}>
+      <div className={classes.button}>
+        <img src={backArrow} alt="back" />
+        <button onClick={backButtonHandler}>Back</button>
+      </div>
+      <div className={classes["country__data"]}>
+        <img
+          src={currentCountryData.flag}
+          alt={`${currentCountryData.commonName} flag`}
+        />
+        <CountryData currentCountry={currentCountryData} />
       </div>
     </main>
   );
 }
-export default CountryDetail;
+
+export default Country;

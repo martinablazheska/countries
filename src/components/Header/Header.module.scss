@@ -1,60 +1,44 @@
-@import url("../../index.scss");
-
 .header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: 100vw;
-  padding: 25px 100px;
+  height: 10vh;
+  padding: 25px 25px;
   box-sizing: border-box;
+  color: hsl(200, 15%, 8%);
+  background-color: white;
 
   a {
     text-decoration: none;
-  }
-
-  .title {
-    font-size: 1.8rem;
-    font-weight: 800;
-  }
-
-  .theme-picker {
-    font-size: 1.1rem;
-    font-weight: 600;
-    display: flex;
-    flex-direction: row;
-    width: 30%;
-    justify-content: flex-end;
-    &:hover {
-      cursor: pointer;
-    }
-    .moon {
-      width: 20px;
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: center;
-      margin-right: 10px;
-    }
-  }
-}
-
-.header[data-theme="light"] {
-  background-color: white;
-  color: hsl(200, 15%, 8%);
-  a {
     &:visited {
       color: hsl(200, 15%, 8%);
     }
   }
-  .moon {
-    background-image: url("../../assets/moon-outline.svg");
+
+  .title {
+    font-size: 1.5rem;
+    font-weight: 800;
   }
-  &:hover {
-    .moon {
-      background-image: url("../../assets/moon.svg");
+
+  .theme-picker {
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    justify-content: flex-end;
+    &:hover {
+      cursor: pointer;
+    }
+    img {
+      width: 20px;
+      margin-right: 5px;
     }
   }
 }
+
 .header[data-theme="dark"] {
   background-color: hsl(209, 23%, 22%);
   color: white;
@@ -63,14 +47,15 @@
       color: white;
     }
   }
-  .moon {
-    background-image: url("../../assets/moon.svg");
-    filter: invert(100%);
-  }
-  &:hover {
-    .moon {
-      background-image: url("../../assets/moon-outline.svg");
-      filter: invert(100%);
+  .theme-picker {
+    img {
+      filter: invert(100);
     }
+  }
+}
+
+@media (min-width: 550px) {
+  .header {
+    padding: 25px 100px;
   }
 }

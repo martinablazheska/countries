@@ -5,7 +5,7 @@
   grid-gap: 50px;
   grid-template-columns: repeat(auto-fill, minmax(300px, 20%));
   grid-template-rows: repeat(auto, 300px);
-  justify-content: space-between;
+  justify-content: center;
 
   p {
     font-size: 1.2rem;
@@ -16,5 +16,11 @@
 
   a {
     text-decoration: none;
+  }
+}
+
+@media (min-width: 950px) {
+  .countries {
+    justify-content: space-between;
   }
 }
