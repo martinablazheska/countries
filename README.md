@@ -48,3 +48,4 @@ Users should be able to:
 
 - Add a default error page
 - Make sure that http request is sent even when a 'detail country' page is refreshed
+- Find out how to use SCSS variables together with modules
