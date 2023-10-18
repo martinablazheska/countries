@@ -2,19 +2,20 @@
   width: 50%;
   max-width: 800px;
   min-width: 200px;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  box-shadow: var(--box-shadow);
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   border-radius: 5px;
   padding: 0 10px;
-  background-color: white;
+  background-color: var(--element-background);
   margin-bottom: 15px;
 
   img {
     width: 20px;
     padding: 0 5px;
+    filter: var(--img-filter);
   }
 
   input {
@@ -25,28 +26,13 @@
     font-size: 1rem;
     font-weight: 600;
     font-family: "Nunito Sans", sans-serif;
-    color: hsl(0, 0%, 52%);
+    color: var(--input);
     background-color: transparent;
     &::placeholder {
-      color: hsl(0, 0%, 52%);
+      color: var(--input);
     }
-  }
-
-  input:focus {
-    border: none;
-  }
-}
-
-.searchbar[data-theme="dark"] {
-  background-color: hsl(209, 23%, 22%);
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 0px;
-  img {
-    filter: invert(100%);
-  }
-  input {
-    color: white;
-    &::placeholder {
-      color: white;
+    &:focus {
+      border: none;
     }
   }
 }

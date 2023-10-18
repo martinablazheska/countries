@@ -1,5 +1,5 @@
 .country-data {
-  color: hsl(200, 15%, 8%);
+  color: var(--text);
   font-size: 1rem;
   width: 60%;
 
@@ -33,7 +33,7 @@
     flex-wrap: wrap;
 
     div {
-      background-color: white;
+      background-color: var(--element-background);
       width: fit-content;
       height: 30px;
       display: flex;
@@ -41,7 +41,7 @@
       align-items: center;
       justify-content: center;
       border-radius: 5px;
-      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+      box-shadow: var(--box-shadow);
       padding: 0 10px;
       margin: 5px 10px;
       &:hover {
@@ -50,25 +50,9 @@
     }
     a {
       text-decoration: none;
-      color: hsl(200, 15%, 8%);
+      color: var(--text);
       &:visited {
-        color: hsl(200, 15%, 8%);
-      }
-    }
-  }
-}
-
-.country-data[data-theme="dark"] {
-  color: white;
-  .borders {
-    div {
-      background-color: hsl(209, 23%, 22%);
-      box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 0px;
-    }
-    a {
-      color: white;
-      &:visited {
-        color: white;
+        color: var(--text);
       }
     }
   }

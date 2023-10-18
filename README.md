@@ -47,5 +47,5 @@ Users should be able to:
 ### Continued development
 
 - Add a default error page
-- Make sure that http request is sent even when a 'detail country' page is refreshed
-- Find out how to use SCSS variables together with modules
+- Refactor the CountryData component to map through the country data without manually typing out all the data names and values
+- Fix the scss module file for Country and find a better solution for the height

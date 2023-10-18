@@ -16,7 +16,7 @@ export const countriesContext = createContext({
 function CountriesContextProvider(props) {
   const [filteredData, setFilteredData] = useState([]);
   const [searchInput, setSearchInput] = useState("");
-  const [selectInput, setSelectInput] = useState("");
+  const [selectInput, setSelectInput] = useState("All");
   const [countryData, setCountryData] = useState([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -35,9 +35,9 @@ function CountriesContextProvider(props) {
         setError("");
         setCountryData(countryData);
         setFilteredData(countryData);
-        setLoading(false);
       } catch (error) {
         setError(error.message);
+      } finally {
         setLoading(false);
       }
     };
@@ -45,40 +45,15 @@ function CountriesContextProvider(props) {
   }, []);
 
   useEffect(() => {
-    function filterData(fetchedData) {
-      if (searchInput === "" && selectInput === "") {
-        setFilteredData(fetchedData);
-      }
-      if (searchInput === "" && selectInput !== "") {
-        setFilteredData(
-          fetchedData.filter((country) => {
-            return country.region === selectInput;
-          })
-        );
-      }
-      if (searchInput !== "" && selectInput === "") {
-        setFilteredData(
-          fetchedData.filter((country) => {
-            return country.name.common
-              .toLowerCase()
-              .includes(searchInput.toLowerCase());
-          })
-        );
-      }
-      if (searchInput !== "" && selectInput !== "") {
-        setFilteredData(
-          fetchedData.filter((country) => {
-            return (
-              country.name.common
-                .toLowerCase()
-                .includes(searchInput.toLowerCase()) &&
-              country.region === selectInput
-            );
-          })
-        );
-      }
-    }
-    filterData(countryData);
+    const filteredData = countryData
+      .filter((country) => {
+        if (selectInput === "All") return country;
+        return country.region === selectInput;
+      })
+      .filter((country) =>
+        country.name.common.toLowerCase().includes(searchInput.toLowerCase())
+      );
+    setFilteredData(filteredData);
   }, [selectInput, searchInput, countryData]);
 
   const data = {

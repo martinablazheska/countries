@@ -1,12 +1,15 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Wrapper from "./components/UI/Wrapper";
+import { createHashRouter, RouterProvider } from "react-router-dom";
+
 import CountriesContextProvider from "./store/countries-context";
-import ThemeContextProvider from "./store/theme-context";
+import ThemeContextProvider, { themeContext } from "./store/theme-context";
+
+import AppWrapper from "./components/UI/AppWrapper";
 import RootLayoutPage from "./pages/RootLayoutPage";
 import CountriesPage from "./pages/CountriesPage";
 import CountryDetailPage from "./pages/CountryDetailPage";
+import { useContext } from "react";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <RootLayoutPage />,
@@ -18,12 +21,13 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  const { theme } = useContext(themeContext);
   return (
     <CountriesContextProvider>
       <ThemeContextProvider>
-        <Wrapper>
+        <AppWrapper data-theme={theme} theme={theme}>
           <RouterProvider router={router} />
-        </Wrapper>
+        </AppWrapper>
       </ThemeContextProvider>
     </CountriesContextProvider>
   );

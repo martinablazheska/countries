@@ -1,10 +1,17 @@
 .main {
+  --background: hsl(0, 0%, 98%);
+  --element-background: white;
+  --text: hsl(200, 15%, 8%);
+  --box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  --input: hsl(0, 0%, 52%);
+  --img-filter: invert(0);
+
   width: 100%;
-  box-sizing: border-box;
-  padding: 0 25px;
-  color: hsl(200, 15%, 8%);
-  background-color: hsl(0, 0%, 98%);
   height: 100%;
+  box-sizing: border-box;
+  padding: 10px 25px;
+  color: var(--text);
+  background-color: var(--background);
 
   .filter {
     width: 100%;
@@ -25,13 +32,17 @@
 }
 
 .main[data-theme="dark"] {
-  color: white;
-  background-color: hsl(207, 26%, 17%);
+  --text: white;
+  --background: hsl(207, 26%, 17%);
+  --box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 0px;
+  --element-background: hsl(209, 23%, 22%);
+  --input: white;
+  --img-filter: invert(100);
 }
 
 @media (min-width: 550px) {
   .main {
-    padding: 0 100px;
+    padding: 20px 100px;
   }
 }
 

@@ -1,46 +1,28 @@
-import classes from "./RegionPicker.module.scss";
 import { useContext, useState } from "react";
 import { countriesContext } from "../../../store/countries-context";
-import { themeContext } from "../../../store/theme-context";
 
-function RegionPicker(props) {
+import classes from "./RegionPicker.module.scss";
+
+function RegionPicker() {
   const [selectIsOpen, setSelectIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState("");
-
-  const { setSelectInput } = useContext(countriesContext);
-  const { theme } = useContext(themeContext);
-
+  const { selectInput, setSelectInput } = useContext(countriesContext);
   const options = ["All", "Africa", "Americas", "Asia", "Europe", "Oceania"];
 
   function optionHandler(option) {
-    if (option === "All") {
-      setSelectInput("");
-    } else {
-      setSelectInput(option);
-    }
+    setSelectInput(option);
     setSelectIsOpen(false);
-    setSelectedOption(option);
   }
 
   function dropdownHandler() {
-    if (selectIsOpen === false) {
+    if (!selectIsOpen) {
       setSelectIsOpen(true);
-      setSelectedOption("");
     } else setSelectIsOpen(false);
   }
 
   return (
-    <div
-      className={classes.dropdown}
-      onClick={dropdownHandler}
-      data-theme={theme}
-    >
+    <div className={classes.dropdown} onClick={dropdownHandler}>
       <div>
-        {selectedOption === "" ? (
-          <span>Filter by Region:</span>
-        ) : (
-          selectedOption
-        )}
+        {selectInput === "All" ? <span>Filter by Region:</span> : selectInput}
       </div>
       {selectIsOpen && (
         <ul>

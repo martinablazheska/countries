@@ -1,19 +1,22 @@
 .header {
+  --background: white;
+  --text: hsl(200, 15%, 8%);
+
   display: flex;
+  width: 100vw;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 100vw;
-  height: 10vh;
   padding: 25px 25px;
   box-sizing: border-box;
-  color: hsl(200, 15%, 8%);
-  background-color: white;
+  color: var(--text);
+  background-color: var(--background);
 
   a {
     text-decoration: none;
+    color: var(--text);
     &:visited {
-      color: hsl(200, 15%, 8%);
+      color: var(--text);
     }
   }
 
@@ -40,13 +43,8 @@
 }
 
 .header[data-theme="dark"] {
-  background-color: hsl(209, 23%, 22%);
-  color: white;
-  a {
-    &:visited {
-      color: white;
-    }
-  }
+  --background: hsl(209, 23%, 22%);
+  --text: white;
   .theme-picker {
     img {
       filter: invert(100);

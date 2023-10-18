@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 
-import classes from "./CountryList.module.scss";
 import CountryCard from "../CountryCard/CountryCard";
+
+import classes from "./CountryList.module.scss";
 
 function CountryList(props) {
   return (

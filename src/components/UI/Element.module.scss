@@ -1,0 +1,15 @@
+.element {
+  background-color: var(--element-background);
+  color: var(--text);
+  border-radius: 5px;
+  box-shadow: var(--box-shadow);
+  height: 100%;
+  width: 100%;
+
+  a {
+    color: var(--text);
+    &:visited {
+      color: var(--text);
+    }
+  }
+}

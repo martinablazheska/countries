@@ -1,13 +1,10 @@
 import { Link } from "react-router-dom";
 
-import { useContext } from "react";
-import { themeContext } from "../../store/theme-context";
 import classes from "./CountryData.module.scss";
 
 function CountryData(props) {
-  const { theme } = useContext(themeContext);
   return (
-    <div className={classes["country-data"]} data-theme={theme}>
+    <div className={classes["country-data"]}>
       <h1>{props.currentCountry.commonName}</h1>
       <ul>
         <div>

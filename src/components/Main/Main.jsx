@@ -20,7 +20,7 @@ function Main() {
   if (error) {
     countryListContent = <p>{error}</p>;
   }
-  if (loading === false && filteredData.length === 0) {
+  if (!loading && filteredData.length === 0) {
     countryListContent = <p>No countries found.</p>;
   }
 
