@@ -23,3 +23,22 @@ export function formatData(currentCountry, countryData) {
       ),
   };
 }
+
+// export function createDataArray(data) {
+//   const dataArray = [
+//     { name: "Native Name", value: data.nativeName },
+//     {
+//       name: "Population",
+//       value: data.population.toLocaleString("en-US", {
+//         minimumFractionDigits: 0,
+//       }),
+//     },
+//     { name: "Region", value: data.region },
+//     { name: "Subregion", value: data.subregion },
+//     { name: "Capital", value: data.capital },
+//     { name: "Top Level Domain", value: data.tld },
+//     { name: "Currencies", value: data.currencies },
+//     { name: "Languages", value: data.languages },
+//   ];
+//   return dataArray;
+// }

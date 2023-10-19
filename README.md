@@ -48,4 +48,3 @@ Users should be able to:
 
 - Add a default error page
 - Refactor the CountryData component to map through the country data without manually typing out all the data names and values
-- Fix the scss module file for Country and find a better solution for the height

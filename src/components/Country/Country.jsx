@@ -34,9 +34,9 @@ function Country(props) {
         <p>Loading...</p>
       ) : (
         <>
-          <div className={classes.button}>
+          <div onClick={backButtonHandler} className={classes.button}>
             <img src={backArrow} alt="back" />
-            <button onClick={backButtonHandler}>Back</button>
+            <button>Back</button>
           </div>
           <div className={classes["country__data"]}>
             <img
